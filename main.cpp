@@ -65,11 +65,11 @@ Node* createTree(int arr[], int arrSize){
 /*
 Also known as Breadth-First
 */
-void inOrder(Node* tree){
+void levelOrder(Node* tree){
     queue<Node*> q;
 
     q.push(tree);
-
+    cout << "Level Order: ";
     while(!q.empty()){
         Node* currentNode = q.front();
 
@@ -87,11 +87,28 @@ void inOrder(Node* tree){
     cout << endl;
 }
 
+void printInOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    printInOrder(root->leftChild);
+    cout << root->val << " ";
+    printInOrder(root->rightChild);
+}
+
+void inOrder(Node* root){
+    cout << "InOrder: ";
+    printInOrder(root);
+    cout << endl;
+}
+
 int main(){
     
     int arr[] = {10,20,30,40,50,60};
     int arrSize = sizeof(arr) / sizeof(arr[0]);
     Node* root = createTree(arr, arrSize);
 
+    levelOrder(root);
     inOrder(root);
 }
