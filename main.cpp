@@ -62,6 +62,9 @@ Node* createTree(int arr[], int arrSize){
     return root;
 }
 
+/*
+Also known as Breadth-First
+*/
 void inOrder(Node* tree){
     queue<Node*> q;
 
