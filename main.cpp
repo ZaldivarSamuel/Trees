@@ -103,6 +103,39 @@ void inOrder(Node* root){
     cout << endl;
 }
 
+void printPreOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    cout << root->val << " ";
+    printPreOrder(root->leftChild);
+    printPreOrder(root->rightChild);
+}
+
+void preOrder(Node* root){
+    cout << "Pre Order: ";
+    printPreOrder(root);
+    cout << endl;
+}
+
+void printPostOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    printPostOrder(root->leftChild);
+    printPostOrder(root->rightChild);
+
+    cout << root->val << " ";
+}
+
+void postOrder(Node* root){
+    cout << "Post Order: ";
+    printPostOrder(root);
+    cout << endl;
+}
+
 int main(){
     
     int arr[] = {10,20,30,40,50,60};
@@ -111,4 +144,6 @@ int main(){
 
     levelOrder(root);
     inOrder(root);
+    preOrder(root);
+    postOrder(root);
 }
