@@ -50,12 +50,10 @@ Node* insertNode(Node* root, queue<Node*>* q, int val){
     return root;
 }
 
-Node* createTree(int arr[]){
+Node* createTree(int arr[], int arrSize){
 
     Node* root = NULL;
     queue<Node*>* q = new queue<Node*>();
-
-    int arrSize = sizeof(arr) / sizeof(arr[0]);
 
     for(int i = 0; i < arrSize; i++){
         root = insertNode(root, q, arr[i]);
@@ -64,8 +62,33 @@ Node* createTree(int arr[]){
     return root;
 }
 
+void inOrder(Node* tree){
+    queue<Node*> q;
+
+    q.push(tree);
+
+    while(!q.empty()){
+        Node* currentNode = q.front();
+
+        cout << currentNode->val << " ";
+        q.pop();
+
+        if(currentNode->leftChild != NULL){
+            q.push(currentNode->leftChild);
+        }
+
+        if(currentNode->rightChild != NULL){
+            q.push(currentNode->rightChild);
+        }
+    }
+    cout << endl;
+}
+
 int main(){
     
     int arr[] = {10,20,30,40,50,60};
-    Node* root = createTree(arr);
+    int arrSize = sizeof(arr) / sizeof(arr[0]);
+    Node* root = createTree(arr, arrSize);
+
+    inOrder(root);
 }
