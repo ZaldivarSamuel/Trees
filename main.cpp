@@ -22,18 +22,17 @@ struct Node{
         leftChild = NULL;
         rightChild = NULL;
     }
-
-    Node(int _val, Node* _leftChild, Node* _rightChild){
-        val = _val;
-        leftChild = _leftChild;
-        rightChild = _rightChild;
-    }
 };
 
+/*
+Inserts an element from an array into the new tree
+*/
 Node* insertNode(Node* root, queue<Node*>* q, int val){
 
+    //Create the node with the value
     Node* newNode = new Node(val);
 
+    //If tree is empty. This becomes the root node
     if(root == NULL){
         root = newNode;
     }
@@ -50,6 +49,12 @@ Node* insertNode(Node* root, queue<Node*>* q, int val){
     return root;
 }
 
+/*
+Creates a tree given an array in level order.
+
+Initializes a root node.
+For every element in the array call insertNode()
+*/
 Node* createTree(int arr[], int arrSize){
 
     Node* root = NULL;
