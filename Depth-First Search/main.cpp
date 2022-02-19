@@ -4,7 +4,12 @@ using namespace std;
 
 int main(){
     
-    Graph g(10);
+    Graph g(7);
+    g.print();
+
+    g.insertEdge(1,3);
+
+
     g.print();
 }
 
