@@ -41,7 +41,7 @@ Node* insertNode(Node* root, queue<Node*>* q, int val){
     }
     else{
         q->front()->rightChild = newNode;
-        q->pop();
+        q->pop(); 
     }
 
     q->push(newNode);
