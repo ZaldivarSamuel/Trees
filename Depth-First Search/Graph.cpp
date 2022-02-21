@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 
 class Graph{
@@ -41,6 +42,37 @@ class Graph{
 
             graph[vertex1][vertex2] = 1;
             graph[vertex2][vertex1] = 1;
+        }
+
+        /*
+        Searching
+        */
+        bool depthFristSearch(int target){
+
+            stack<int> toVisit;
+            vector<int> visited(numVerticies, 0);
+
+            //Start with vector 1
+            toVisit.push(1);
+
+            while(!toVisit.empty()){
+                int vertex = toVisit.top();
+
+                if(vertex == target){
+                    return true;
+                }
+                vertex--; 
+                toVisit.pop();
+                visited[vertex] = 1;
+
+                for(int i = 0; i < graph[vertex].size(); i++){
+                    if(graph[vertex][i] == 1 && visited[i] != 1){
+                        toVisit.push(i+1);
+                    }
+                }
+            }   
+
+            return false;
         }
 
         /*
