@@ -54,6 +54,7 @@ class Graph{
 
             //Start with vector 1
             toVisit.push(1);
+            visited[0] = 1;
 
             while(!toVisit.empty()){
                 int vertex = toVisit.top();
@@ -63,11 +64,11 @@ class Graph{
                 }
                 vertex--; 
                 toVisit.pop();
-                visited[vertex] = 1;
 
                 for(int i = 0; i < graph[vertex].size(); i++){
                     if(graph[vertex][i] == 1 && visited[i] != 1){
                         toVisit.push(i+1);
+                        visited[i] = 1;
                     }
                 }
             }   

@@ -25,6 +25,12 @@ int main(){
     addEdges(g);
     
     g.print();
-    g.depthFristSearch(4);
+
+    if(g.depthFristSearch(4)){
+        cout << "Found" << endl;
+    }
+    else{
+        cout << "Not Found" << endl;
+    }
 }
 
